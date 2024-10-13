@@ -8,7 +8,7 @@
         body {
             background-color: rgb(87, 185, 247);
             color: white;
-            font: normal 18pt Arial;
+            font: normal 12pt Arial;
 
         }
 
@@ -27,13 +27,13 @@
         </li>
         <li>
             <div id="teste-div-id">
-                <p>Este meu terceiro parágrafo está dentro de uma <em>&ltdiv&gt</em> que receberá um <em>id</em> como identificação, para eu poder manipulá-los via Javascript.</p>
+                <p>Este meu terceiro parágrafo está dentro de uma <em>&ltdiv&gt</em> que receberá um <em>id</em> como identificação, para eu poder manipulá-lo via Javascript.</p>
             </div>
         </li>
         <li>
             <div class="teste-div-class">
                 <p>
-                    Assim como os primeiros parágrafos acima, fiz 2 div's (esta é a segunda), para eu poder também capturá-la, via Javascript, e manipulá-la com os meus primeiros conhecimentos em DOM.
+                    Assim como os primeiros parágrafos acima, fiz 3 div's (esta é a segunda), para eu poder também capturá-la, via Javascript, e manipulá-la com os meus primeiros conhecimentos em DOM.
                 </p>
             </div>
         </li>
@@ -72,7 +72,13 @@
             div2.style.color = 'blue';
             div3.style.fontWeight = '800';
 
+            // Nesse bloco, vou alterar as configurações iniciais de CSS que fiz no documento, lá no alto da página:
+            window.document.body.style.background = 'lightyellow';
+            window.document.body.style.color = '#a9a9a9';
+            window.document.body.style.fontFamily = 'Courier'
+
         </script>
     </code>
+    <h4>Experimente DESABILITAR O JAVASCRIPT agora</h4>
 </body>
 </html>
