@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 9 – Introdução ao DOM</title>
+    <style>
+        body {
+            background-color: rgb(87, 185, 247);
+            color: white;
+            font: normal 18pt Arial;
+
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Iniciando Estudos com o DOM</h1>
+    <h2>Exemplos:</h2>
+    <ol>
+            <h3>Esse é um título H3</h3>
+        <li>
+            <p>Este é meu primeiro parágrafo.</p>
+        </li>
+        <li>
+            <p>No meu segundo parágrafo vou escrever apenas que estou aprendendo a usar o <strong>DOM</strong> em Javascript.</p>
+        </li>
+        <li>
+            <div id="teste-div-id">
+                <p>Este meu terceiro parágrafo está dentro de uma <em>&ltdiv&gt</em> que receberá um <em>id</em> como identificação, para eu poder manipulá-los via Javascript.</p>
+            </div>
+        </li>
+        <li>
+            <div class="teste-div-class">
+                <p>
+                    Assim como os primeiros parágrafos acima, fiz 2 div's (esta é a segunda), para eu poder também capturá-la, via Javascript, e manipulá-la com os meus primeiros conhecimentos em DOM.
+                </p>
+            </div>
+        </li>
+        <li>
+            <div class="teste-div-selector">
+                <p>Agora, uma última <em>&ltdiv&gt</em> para eu poder manipulá-la, <em>por seletor</em>, que é um método das versões um pouco mais recentes do EcmaScript.</p>
+            </div>
+        </li>
+    </ol>
+    <code>
+        <script>
+            // Esse bloco abaixo contém apenas alguns métodos iniciais, para treinamento:
+            window.document.write('Antes de começar a manipulação em DOM, seguem abaixo alguns exemplos de métodos de manipulação possíveis via Javascript:<br>'); // exemplo de adição de conteúdo via Javascript (não é o melhor, mas é o mais simples).
+            window.document.write('<strong>"Olá, Mundo!"</strong> <em> = Esta frase é um exemplo de texto inserido via Javascript (a anterior também foi, na verdade).</em><br>'); // idem ao anterior.
+            window.document.write(window.document.charset, ' <em>= Esta é minha cadeia de caracteres, inserida aqui via Javascript.</em><br>'); // idem ao anterior.
+            window.document.write(window.navigator.appName, ' <em>= Este é o meu navegador neste momento (na verdade, como o meu navegador -- Google Chrome -- está se comportando neste momento), capturado via Javascript.</em><br>'); // idem ao anterior.
+            window.document.write(window.document.URL, ' <em>= E esta é a minha URL de momento, capturada via Javascript.</em><br>'); // idem ao anterior.
+
+
+            // Nesse bloco abaixo, vou declarar todas as variáveis que vou utilizar:
+            var h3 = window.document.getElementsByTagName('h3')[0]; // variável para armazenar as informações da tag "h3".
+            var p1 = window.document.getElementsByTagName('p')[0]; // variável para armazenar as informações do primeiro parágrafo.
+            var p2 = window.document.getElementsByTagName('p')[1]; // variável para armazenar as informações do segundo parágrafo.
+            var div1 = window.document.getElementById('teste-div-id'); // variável para armazenar as informações do terceiro parágrafo, contido numa "div" com "id".
+            var div2 = window.document.getElementsByClassName('teste-div-class')[0]; // variável para armazenar as informações do quarto parágrafo, contido numa div com "class"
+            var div3 = window.document.querySelector('div.teste-div-selector'); // variável para armazenar as informações do quinto parágrafo, por "Query Selector" (ATENÇÃO AO USO DA SINTAXE DO CSS!!!)
+
+
+            // Nesse bloco abaixo, vou manipular os estilos dos elementos de acordo com as variáveis deles que criei no bloco acima:
+            h3.style.textAlign = 'center'; // manipulando o h3, via Javascript.
+            p1.style.textTransform = 'Uppercase'; // identando a primeiro parágrafo.
+            p2.style.fontFamily = "Times New Roman"; // alterando a fonte do meu primeiro parágrafo.
+            div1.style.color = 'black'; // alterando a cor do meu terceiro parágrafo.
+            div2.style.width = '500px';
+            div2.style.background = 'cyan';
+            div2.style.color = 'blue';
+            div3.style.fontWeight = '800';
+
+        </script>
+    </code>
+</body>
+</html>
