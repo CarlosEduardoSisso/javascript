@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 10 – Eventos DOM</title>
+    <style>
+        div#area {
+            font: normal 14pt Arial;
+            background: rgb(56, 129, 56);
+            color: white;
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+        }
+    </style>
+</head>
+    <h1>Aula 10 – Eventos DOM</h1>
+    <div id="area">
+        Interaja...
+    </div>
+    <!--No início do aprendizado, usei os eventos onclick="clicar()" onmouseenter="entrar()" onmouseout="sair()" dentro da estrutura da 'div'. Depois, aprendi a criar os 'Eventos' dentro do próprio script do JS (abaixo), como melhor prática de desenvolvimento. -->
+
+    <script>
+        var area = window.document.getElementById('area')
+        area.addEventListener('click', clicar)
+        area.addEventListener('mouseenter', entrar)
+        area.addEventListener('mouseout', sair)
+
+        function clicar() {
+            area.innerText = 'Você clicou!'
+            area.style.background = 'rgb(56, 129, 56)'
+        }
+
+        function entrar() {
+            area.style.background = 'blue'
+            area.innerText = 'Você entrou!'
+        }
+
+        function sair() {
+            area.innerText = 'Você saiu!'
+            area.style.background = 'red'
+        }
+    </script>
+<body>
+</body>
+</html>
