@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 10 – Eventos DOM</title>
+</head>
+<body>
+    <h1>Somando Valores</h1>
+    <input type="number" name="txtn1" id="txtn1" placeholder="Digite um número"> + 
+    <input type="number" name="txtn2" id="txtn2" placeholder="Digite outro número">
+    <input type="button" value="Somar" onclick="somar()">
+    <p id="res">Resultado</p>
+    <script>
+        
+        function somar() {
+            var n1 = Number((window.document.getElementById('txtn1')).value)
+            var n2 = Number(window.document.querySelector('input#txtn2').value)
+            var res = window.document.getElementById('res')
+            var soma = n1 + n2
+            res.innerHTML = `A soma entre ${n1} e ${n2} é igual a <strong> ${soma}.`
+        }
+
+    </script>
+</body>
+</html>
