@@ -5,8 +5,7 @@ console.log('Tudo bem?')
 console.log('Tudo bem?')
 console.log('Tudo bem?')
 
- 
-// ESTRUTURA DE REPETIÇÃO COM TESTE LÓGICO NO INÍCIO
+ // ESTRUTURA DE REPETIÇÃO COM TESTE LÓGICO NO INÍCIO
 var c = 1
 while (c <= 6) {
     console.log(`Tudo bem nº ${c}`)
