@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Efeito de Círculo e Explosão</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            background: black;
+        }
+
+        .circle {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border-radius: 50%;
+            pointer-events: none;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 1);
+        }
+
+        /* Animação do rastro */
+        .trail {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 80%);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: trailAnimation 3s forwards; /* Mais longo, para dar o efeito de cauda */
+        }
+
+        /* Efeito de crescimento e desvanecimento do rastro */
+        @keyframes trailAnimation {
+            0% {
+                opacity: 1;
+                width: 10px;
+                height: 10px;
+                transform: translate(0, 0);
+            }
+            100% {
+                opacity: 0;
+                width: 30px; /* Aumenta o tamanho no final */
+                height: 30px;
+                transform: translate(-10px, -10px); /* Leve deslocamento */
+            }
+        }
+
+        /* Efeito de explosão */
+        @keyframes explode {
+            0% { transform: scale(1); opacity: 1; filter: blur(0); }
+            100% { transform: scale(10); opacity: 0; filter: blur(30px); }
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            opacity: 0;
+            z-index: -1;
+        }
+
+        /* Transição de explosão para a nova página */
+        .reveal {
+            animation: reveal 1.5s forwards;
+        }
+
+        @keyframes reveal {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="overlay" class="overlay"></div>
+
+<script>
+    // Criação do círculo que segue o mouse
+    const circle = document.createElement('div');
+    circle.classList.add('circle');
+    document.body.appendChild(circle);
+
+    document.addEventListener('mousemove', (event) => {
+        // Posição do círculo segue o movimento do mouse
+        circle.style.left = `${event.pageX - 10}px`;
+        circle.style.top = `${event.pageY - 10}px`;
+
+        // Criação do rastro com efeito de cauda de cometa
+        const trail = document.createElement('div');
+        trail.classList.add('trail');
+        trail.style.left = `${event.pageX - 5}px`;
+        trail.style.top = `${event.pageY - 5}px`;
+        document.body.appendChild(trail);
+
+        // Remoção do rastro após a animação
+        setTimeout(() => {
+            trail.remove();
+        }, 3000); // O rastro dura 3 segundos agora
+    });
+
+    document.addEventListener('click', () => {
+        // Animação de explosão do círculo
+        circle.style.animation = 'explode 1.5s forwards';
+
+        // Efeito de blur na tela
+        const overlay = document.getElementById('overlay');
+        overlay.style.zIndex = '1';  // Traz a camada de blur para frente
+        overlay.classList.add('reveal');  // Inicia a animação de revelação
+
+        // Após a "explosão", abrir outra página
+        setTimeout(() => {
+            window.location.href = "https://www.exemplo.com";  // Mude para a página desejada
+        }, 1500);  // A página abre 1.5 segundos após o clique
+    });
+</script>
+
+</body>
+</html>
+
+
